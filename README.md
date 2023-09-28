@@ -10,7 +10,9 @@ Adaptado do original feito pelo Kirollos para a divisão brasileira da VATSIM co
 3. Abra o Euroscope, clique em "Other Set" depois "Plug-ins";
 4. Dê um "Load" usando o arquivo que você moveu e Voila 🎉
 
-# Exemplo de arquivo DiscordEuroscope_RadioCallsigns.txt:
+# Callsigns
+
+Se quiser que seja mostrado o nome em extenso da posição de controle, é necessário criar um arquivo de texto **DiscordEuroscope_RadioCallsigns.txt** no mesmo local onde está o arquivo **DiscordEuroscope.dll**. O conteúdo do arquivos de callsigns deve seguir o padrão do exemplo abaixo:
 ```
 SBRE_CTR Centro Recife
 SBXA_APP Controle Aracaju
