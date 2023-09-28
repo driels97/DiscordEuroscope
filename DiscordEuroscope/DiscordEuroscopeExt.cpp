@@ -32,10 +32,10 @@ DiscordEuroscopeExt::DiscordEuroscopeExt() : EuroScopePlugIn::CPlugIn(EuroScopeP
 			u8"Configurando ATIS...",
 			u8"Reclamando do DECEA...",
 			u8"Negociando com os ventos...",
-			u8"Decifrando abreviacoes - um superpoder do ATCo...",
-			u8"Convencendo os passaros a manterem a distancia...",
+			u8"Decifrando abreviações - um superpoder do ATCo...",
+			u8"Convencendo os pássaros a manterem a distância...",
 			u8"Calibrando o radar para detectar discos voadores...",
-			u8"Desviando de baloes na Terminal Sao Paulo..."
+			u8"Desviando de baloes na Terminal São Paulo..."
 	};
 	this->RandomIdleIndex = std::rand() % this->idlePhrases.size();
 
