@@ -1,7 +1,7 @@
 # DiscordEuroscope 1.2 adaptado para a VATBRZ
 Um plugin para mostrar no Discord o que você está fazendo no Euroscope :D 
 
-Adaptado do original feito pelo Kirollos para a divisão brasileira da VATSIM com suporte para Euroscope 3.1 e 3.2.
+Adaptado do original feito pelo Kirollos para a divisão brasileira da VATSIM com suporte para Euroscope.
 
 # Instalação
 
