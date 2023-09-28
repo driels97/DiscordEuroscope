@@ -24,6 +24,7 @@
 #include <vector>
 #include <map>
 #include <fstream>
+#include <chrono>
 
 #ifndef __E_KEK_H
 #define __E_KEK_H
@@ -34,10 +35,12 @@ public:
 	DiscordEuroscopeExt();
 	virtual ~DiscordEuroscopeExt();
 	int EuroInittime;
+	int RandomIdleIndex;
 
 	int CountACinRange();
 	int CountTrackedAC();
 	std::map<std::string, std::string> RadioCallsigns;
+	std::vector<std::string> idlePhrases;
 	std::vector<std::string> tracklist;
 };
 

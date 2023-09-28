@@ -27,6 +27,17 @@ DiscordEuroscopeExt::DiscordEuroscopeExt() : EuroScopePlugIn::CPlugIn(EuroScopeP
 	// handlers
 	Discord_Initialize(DISCORD_APPID, &handlers, 1, NULL);
 	this->EuroInittime = (int)time(NULL);
+	this->idlePhrases = {
+			u8"Definindo pista em uso...",
+			u8"Configurando ATIS...",
+			u8"Reclamando do DECEA...",
+			u8"Negociando com os ventos...",
+			u8"Decifrando abreviacoes - um superpoder do ATCo...",
+			u8"Convencendo os passaros a manterem a distancia...",
+			u8"Calibrando o radar para detectar discos voadores...",
+			u8"Desviando de baloes na Terminal Sao Paulo..."
+	};
+	this->RandomIdleIndex = std::rand() % this->idlePhrases.size();
 
 	char DllPathFile[_MAX_PATH];
 	std::string RCPath;
@@ -106,7 +117,11 @@ VOID CALLBACK DiscordTimer(_In_ HWND hwnd, _In_ UINT uMsg, _In_ UINT_PTR idEvent
 		return;
 	if (inst->EuroInittime == 0)
 		return;
+	if ((time(NULL) - inst->EuroInittime) % 60 == 59)
+		inst->RandomIdleIndex = std::rand() % inst->idlePhrases.size();
+
 	DiscordRichPresence discordPresence;
+
 	memset(&discordPresence, 0, sizeof(discordPresence));
 	discordPresence.largeImageKey = PRESENCE_LARGE_IMAGE_KEY;
 	discordPresence.startTimestamp = inst->EuroInittime;
@@ -114,7 +129,7 @@ VOID CALLBACK DiscordTimer(_In_ HWND hwnd, _In_ UINT uMsg, _In_ UINT_PTR idEvent
 	{
 		using namespace EuroScopePlugIn;
 	case CONNECTION_TYPE_NO:
-		discordPresence.details = "Idle";
+		discordPresence.details = inst->idlePhrases[inst->RandomIdleIndex].c_str();
 		Discord_UpdatePresence(&discordPresence);
 		return;
 	case CONNECTION_TYPE_PLAYBACK:
@@ -124,7 +139,7 @@ VOID CALLBACK DiscordTimer(_In_ HWND hwnd, _In_ UINT uMsg, _In_ UINT_PTR idEvent
 		return;
 	case CONNECTION_TYPE_SWEATBOX:
 #if SWEATBOX_BYPASS == FALSE
-		discordPresence.details = "Sweatbox";
+		discordPresence.details = u8"Sweatbox | Em instrução";
 		Discord_UpdatePresence(&discordPresence);
 		return;
 #else
@@ -151,24 +166,24 @@ VOID CALLBACK DiscordTimer(_In_ HWND hwnd, _In_ UINT uMsg, _In_ UINT_PTR idEvent
 											#else
 														inst->RadioCallsigns[callsign].length() ? callsign : "";
 											#endif
-		sprintf_s(tmp, 100, "%s %.3fMHz", 
+		sprintf_s(tmp, 100, "%s | %.3fMHz", 
 											#if RADIO_CALLSIGN_MAIN == TRUE
 														inst->RadioCallsigns[callsign].length() ? inst->RadioCallsigns[callsign].c_str() : callsign
 											#else
 													callsign
 											#endif
 			, frequency);
-		sprintf_s(tmp2, 100, "Aircraft tracked (%i of %i)", inst->CountTrackedAC(), inst->CountACinRange());
+		sprintf_s(tmp2, 100, "Aeronaves assumidas (%i of %i)", inst->CountTrackedAC(), inst->CountACinRange());
 		if (inst->tracklist.size() > 0) {
-			sprintf_s(tmp3, 100, "Total tracks: %i", inst->tracklist.size());
+			sprintf_s(tmp3, 100, "Aeronaves assumidas: %i", inst->tracklist.size());
 			discordPresence.smallImageText = tmp3;
 			discordPresence.smallImageKey = PRESENCE_SMALL_IMAGE_KEY;
 		}
 	}
 	else
 	{
-		sprintf_s(tmp, 100, "Observing as %s", callsign);
-		sprintf_s(tmp2, 100, "Aircraft in range: %i", inst->CountACinRange());
+		sprintf_s(tmp, 100, "Observando como %s", callsign);
+		sprintf_s(tmp2, 100, "Aeronaves no alcance: %i", inst->CountACinRange());
 	}
 	discordPresence.details = tmp;
 	discordPresence.state = tmp2;
