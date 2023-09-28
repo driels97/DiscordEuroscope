@@ -1,14 +1,17 @@
-# DiscordEuroscope 1.2
-A plugin written to provide discord rich presence feature for our lovely EuroScope.
-And the good news is that it supports both ES *3.1d* and *3.2*!
+# DiscordEuroscope 1.2 adaptado para a VATBRZ
+Um plugin para mostrar no Discord o que você está fazendo no Euroscope :D 
 
-All you need is to *load the plugin*, and it'll work!
-You can download the plugin from the Releases page. Or compile it yourself using Visual Studio.
+Adaptado do original feito pelo Kirollos para a divisão brasileira da VATSIM com suporte para Euroscope 3.1 e 3.2.
 
-**Please** report any bugs in the issues section of this repository.
+# Instalação
 
-# Radio Callsigns file example:
+1. Baixe o arquivo **DiscordEuroscope.dll** na parte de Releases neste repositório;
+2. Mova o arquivo para a pasta de Plugins do Euroscope
+3. Abra o Euroscope, clique em "Other Set" depois "Plug-ins";
+4. Dê um "Load" usando o arquivo que você moveu e Voila 🎉
+
+# Exemplo de arquivo DiscordEuroscope_RadioCallsigns.txt:
 ```
-HECC_CTR Cairo Radar
-HECA_APP Cairo Director
+SBRE_CTR Centro Recife
+SBXA_APP Controle Aracaju
 ```
