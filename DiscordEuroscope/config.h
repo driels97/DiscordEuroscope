@@ -18,11 +18,11 @@
 
 #define UPDATE_TIMER				(1000) // milliseconds
 
-#define DISCORD_APPID				("477907858072272896")
-#define PRESENCE_LARGE_IMAGE_KEY	("es")
-#define PRESENCE_SMALL_IMAGE_KEY	("ttrks")
+#define DISCORD_APPID				("1156747182540591124")
+#define PRESENCE_LARGE_IMAGE_KEY	("logocurtaredonda")
+#define PRESENCE_SMALL_IMAGE_KEY	("radar")
 
-#define RADIO_CALLSIGN_MAIN			FALSE	// TRUE		-	Main title will include the radio callsign alongside the primary frequency.
+#define RADIO_CALLSIGN_MAIN			TRUE	// TRUE		-	Main title will include the radio callsign alongside the primary frequency.
 											// FALSE	-	Main title will include the actual callsign alongside the primary frequency.
 
 #define SWEATBOX_BYPASS				FALSE	// TRUE		-	Bypass sweatbox detection as if it is a normal connection
