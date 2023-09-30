@@ -12,7 +12,7 @@ Adaptado do original feito pelo Kirollos para a divisão brasileira da VATSIM co
 
 # Callsigns
 
-Se quiser que seja mostrado o nome em extenso da posição de controle, é necessário criar um arquivo de texto **DiscordEuroscope_RadioCallsigns.txt** no mesmo local onde está o arquivo **DiscordEuroscope.dll**. O conteúdo do arquivos de callsigns deve seguir o padrão do exemplo abaixo:
+Se quiser que seja mostrado o nome em extenso da posição de controle, é necessário criar um arquivo de texto **DiscordEuroscope_RadioCallsigns.txt** no mesmo local onde está o arquivo **DiscordEuroscope.dll**. Uma base para esse arquivo de callsigns é disponibilizado também na parte de Releases e pode ser customizado a vontade. O conteúdo deste arquivo deve seguir o padrão do exemplo abaixo:
 ```
 SBRE_CTR Centro Recife
 SBXA_APP Controle Aracaju
