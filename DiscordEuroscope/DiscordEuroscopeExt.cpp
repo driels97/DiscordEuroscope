@@ -173,7 +173,7 @@ VOID CALLBACK DiscordTimer(_In_ HWND hwnd, _In_ UINT uMsg, _In_ UINT_PTR idEvent
 													callsign
 											#endif
 			, frequency);
-		sprintf_s(tmp2, 100, "Aeronaves assumidas (%i of %i)", inst->CountTrackedAC(), inst->CountACinRange());
+		sprintf_s(tmp2, 100, "Aeronaves assumidas (%i de %i)", inst->CountTrackedAC(), inst->CountACinRange());
 		if (inst->tracklist.size() > 0) {
 			sprintf_s(tmp3, 100, "Aeronaves assumidas: %i", inst->tracklist.size());
 			discordPresence.smallImageText = tmp3;
