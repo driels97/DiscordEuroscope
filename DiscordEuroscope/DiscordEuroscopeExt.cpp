@@ -133,7 +133,7 @@ VOID CALLBACK DiscordTimer(_In_ HWND hwnd, _In_ UINT uMsg, _In_ UINT_PTR idEvent
 		Discord_UpdatePresence(&discordPresence);
 		return;
 	case CONNECTION_TYPE_PLAYBACK:
-		discordPresence.details = "Playback";
+		discordPresence.details = u8"Playback | Vendo os aviões de novo";
 		
 		Discord_UpdatePresence(&discordPresence);
 		return;
